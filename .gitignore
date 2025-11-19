@@ -1,0 +1,26 @@
+# Environment variables
+.env
+
+# User configuration (contains personal info)
+user-config.json
+user-config.example.shelton.json
+origin_resume/
+
+# Dependencies
+node_modules/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+applications/
+
+# Generated files (optional - uncomment if you don't want to commit generated resumes)
+# applications/

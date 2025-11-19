@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Agent - 简历定制助手</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📝 Resume Agent</h1>
+            <p class="subtitle">AI-Powered Resume Customization Tool</p>
+        </header>
+
+        <main>
+            <section class="input-section">
+                <form id="resumeForm">
+                    <div class="form-group">
+                        <label for="companyName">Company Name *</label>
+                        <input
+                            type="text"
+                            id="companyName"
+                            name="companyName"
+                            placeholder="e.g., Google, Meta, Microsoft"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="jobDescription">Job Description *</label>
+                        <textarea
+                            id="jobDescription"
+                            name="jobDescription"
+                            rows="15"
+                            placeholder="Paste the full job description here..."
+                            required
+                        ></textarea>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <label>
+                            <input type="checkbox" id="isEasyApply" name="isEasyApply">
+                            <span>EasyApply (只生成简历，不生成求职信)</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn-primary" id="generateBtn">
+                        <span class="btn-text">Generate Resume</span>
+                        <span class="btn-loader" style="display: none;">
+                            <span class="spinner"></span> Processing...
+                        </span>
+                    </button>
+                </form>
+            </section>
+
+            <section class="output-section" id="outputSection" style="display: none;">
+                <h2>Generation Status</h2>
+
+                <div class="status-container" id="statusContainer">
+                    <div class="status-item">
+                        <span class="status-icon">⏳</span>
+                        <span class="status-text">Initializing...</span>
+                    </div>
+                </div>
+
+                <div class="results-container" id="resultsContainer" style="display: none;">
+                    <h3>Generated Files</h3>
+
+                    <div class="files-grid">
+                        <div class="file-card" id="cvCard">
+                            <div class="file-icon">📄</div>
+                            <h4>Resume (CV)</h4>
+                            <div class="file-links">
+                                <a href="#" id="cvMdLink" download>
+                                    <button class="btn-secondary">Download MD</button>
+                                </a>
+                                <a href="#" id="cvPdfLink" download>
+                                    <button class="btn-secondary">Download PDF</button>
+                                </a>
+                            </div>
+                            <button class="btn-text-only" onclick="showPreview('cv')">Preview</button>
+                        </div>
+
+                        <div class="file-card" id="coverLetterCard" style="display: none;">
+                            <div class="file-icon">📧</div>
+                            <h4>Cover Letter</h4>
+                            <div class="file-links">
+                                <a href="#" id="clMdLink" download>
+                                    <button class="btn-secondary">Download MD</button>
+                                </a>
+                                <a href="#" id="clPdfLink" download>
+                                    <button class="btn-secondary">Download PDF</button>
+                                </a>
+                            </div>
+                            <button class="btn-text-only" onclick="showPreview('coverLetter')">Preview</button>
+                        </div>
+                    </div>
+
+                    <div class="preview-container" id="previewContainer" style="display: none;">
+                        <div class="preview-header">
+                            <h4 id="previewTitle">Preview</h4>
+                            <button onclick="closePreview()" class="btn-close">✕</button>
+                        </div>
+                        <div class="preview-content" id="previewContent"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Powered by Claude AI | Built with ❤️ by Shelton</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
